@@ -224,3 +224,7 @@ self.addEventListener("push", function (event) {
   );
 });
 ```
+
+---
+
+### author [akNjoroge](https://twitter.com/aknjoroge)
