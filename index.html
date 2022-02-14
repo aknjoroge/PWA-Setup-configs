@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="google-site-verification"
+      content="LJ5FhF6rfzsGNJ-4dkErnKLK0mi7MQisdacdlQQCf60"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      content="Techkey Cybernetics client portal. A better and more efficient way to manage your projects"
+      name="description"
+    />
+    <meta
+      content="Techkey Cybernetics, client portal, techkey cybernetics client, client portal, techkey project, manage techkey projects,manage cybernetics projects"
+      name="keywords"
+    />
+    <meta content="Techkey Cybernetics" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="icon" href="./favicon.ico" />
+    <link rel="apple-touch-icon" href="./logo.png" />
+
+    <link rel="manifest" href="./manifest.json" />
+
+    <title>Techkey Cybernetics | Client Portal</title>
+
+    <script>
+      function randomNotification() {
+        const randomItem = Math.floor(Math.random());
+        const notifTitle = "Test Notification";
+        const notifBody = `Created by akNjoroge.`;
+        const notifImg = `logo.png`;
+        const options = {
+          body: notifBody,
+          icon: notifImg,
+        };
+        new Notification(notifTitle, options);
+      }
+
+      window.addEventListener("load", function () {
+        Notification.requestPermission().then((result) => {
+          if (result === "granted") {
+            randomNotification();
+          }
+        });
+      });
+
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("./serviceworker.js")
+            .then((reg) => console.log("Success: ", reg.scope))
+            .catch((err) => console.log("Failure: ", err));
+        });
+      }
+    </script>
+  </head>
+
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
